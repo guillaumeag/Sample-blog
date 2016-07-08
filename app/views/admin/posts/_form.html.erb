@@ -1,0 +1,39 @@
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
+<% if post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+    <ul>
+    <% post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<br>
+<div class="field">
+  <strong>Published:</strong> <%= f.check_box :published %>
+</div>
+
+<div class="field">
+  <%= f.text_field :title, placeholder: :title, class:"title" %>
+</div>
+
+<div class="field">
+  <%= f.label :content, class: "content" %>
+  <%= f.text_area :content, id: "post-content", style: "height: 350px;" %>
+</div>
+
+<script>
+  tinymce.init({
+    selector:'#post-content',
+    plugins : [
+      'advlist autolink link image lists charmap preview hr anchor pagebreak spellchecker',
+      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      'save table contextmenu directionality paste textcolor'
+    ],
+    toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | forecolor backcolor | preview code fullscreen'
+  });
+</script>

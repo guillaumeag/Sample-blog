@@ -1,0 +1,21 @@
+@import 'scss/variables';
+
+.field_with_errors input {
+  border-width: 2px !important;
+  border-color: $errors-color !important;
+}
+
+#error_explanation {
+  color: $errors-color;
+
+  h2 {
+    color: $errors-color;
+    font-weight: bold;
+  }
+  
+  ul { padding-left: 2rem; }
+
+  ul li {
+    list-style: square;
+  }
+}

@@ -1,0 +1,13 @@
+<%= form_for [@post, Comment.new], remote: true do |f| %>
+  <div class="field">
+    <label>Your name:</label>
+    <%= f.text_field :author, id: "comment-author", class: "u-full-width" %>
+  </div>
+  <div class="field">
+    <label>Your comment:</label>
+    <%= f.text_area :content, id: "comment-content", class: "u-full-width" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "button-primary" %>
+  </div>
+<% end %>

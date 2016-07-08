@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="breadcrumb">
+  <li>Blog Admin</li>
+  <li class="active">Posts</li>
+  <li><%= link_to 'New Post', new_admin_post_path, "data-turbolinks": "false" %></li>
+</ul>
+
+<section class="searchfield text-right">
+  <%= form_tag admin_posts_url, method: 'GET' do |f| %>
+    <%= text_field_tag :search, params[:search], { placeholder: "Search by title..." } %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</section>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th><%= sortable 'published' %></th>
+      <th><%= sortable 'created_at' %></th>
+      <th><%= sortable 'title' %></th>
+      <th>Content</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @posts %>
+  </tbody>
+</table>

@@ -1,0 +1,9 @@
+<tr>
+  <td>
+    <% css_class = post.published ? "check-square-o" : "square-o" %>
+    <i class="fa fa-<%= css_class %>"></i>
+  </td>
+  <td><%= post.created_at.to_s(:long) %></td>
+  <td><%= link_to post.title, admin_post_path(post) %></td>
+  <td><%= strip_tags "#{post.content[0..70]}..." %></td>
+</tr>

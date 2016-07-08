@@ -1,0 +1,17 @@
+<ul class="breadcrumb">
+  <li>Blog Admin</li>
+  <li><%= link_to 'Posts', admin_posts_path %></li>
+  <li class="active">Editing <%= @post.title %></li>
+</ul>
+
+<fieldset>
+  <legend><h4>Editing post</h4></legend>
+  <%= form_for :post, url: admin_post_path(@post), method: :patch do |f| %>
+    <%= render partial: "form", locals: { f: f, post: @post } %>
+    <br>
+    <div class="actions">
+      <%= link_to 'Cancel', admin_post_path(@post), class: "button" %>
+      <%= f.submit class: "button-primary" %>
+    </div>
+  <% end %>
+</fieldset>

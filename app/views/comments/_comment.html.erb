@@ -1,0 +1,7 @@
+<p class="comment">
+  <%= comment.content %><br>
+  <small>
+    By <strong><%= comment.author %></strong>
+    – <%= distance_of_time_in_words_to_now(comment.created_at) %>
+  </small>
+</p>

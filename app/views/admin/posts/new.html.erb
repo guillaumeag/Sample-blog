@@ -1,0 +1,17 @@
+<ul class="breadcrumb">
+  <li>Blog Admin</li>
+  <li><%= link_to 'Posts', admin_posts_path %></li>
+  <li class="active">New Post</li>
+</ul>
+
+<fieldset>
+  <legend><h4>New post</h4></legend>
+  <%= form_for :post, url: admin_posts_path do |f| %>
+    <%= render partial: "form", locals: { f: f, post: @post } %>
+    <br>
+    <div class="actions">
+      <%= link_to 'Cancel', admin_posts_path, class: "button" %>
+      <%= f.submit class: "button-primary" %>
+    </div>
+  <% end %>
+</fieldset>

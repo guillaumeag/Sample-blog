@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="breadcrumb">
+  <li>Blog Admin</li>
+  <li><%= link_to 'Posts', admin_posts_path %></li>
+  <li class="active"><%= @post.title %></li>
+</ul>
+
+<div class="actions u-pull-right">
+  <%= link_to toggle_published_admin_post_path(@post), class: "button" do %>
+    <%= @post.published ? "Unpublish" : "Publish" %>
+  <% end %>
+  <%= link_to edit_admin_post_path(@post), "data-turbolinks": "false", class: "button" do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+    Edit
+  <% end %>
+  <%= link_to admin_post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "button button-red" do %>
+    <i class="fa fa-trash" aria-hidden="true"></i>
+    Destroy
+  <% end %>
+</div>
+
+<h4>
+  <%= @post.title %>
+  <% css_class = @post.published ? "eye" : "eye-slash" %>
+  <i class="fa fa-<%= css_class %>" aria-hidden="true"></i>
+</h4>
+
+<p>
+  <%= raw @post.content %>
+</p>

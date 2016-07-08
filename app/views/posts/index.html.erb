@@ -1,0 +1,10 @@
+<h2>Posts</h2>
+
+<ul class="posts">
+  <% @posts.each do |post| %>
+    <li class="post">
+      <span class="date"><%= post.created_at.to_date %></span>
+      <span class="title"><%= link_to post.title, post %></span>
+    </li>
+  <% end %>
+</ul>
